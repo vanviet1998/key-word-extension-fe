@@ -2,7 +2,7 @@ import React from 'react';
 
 function Options() {
   return (
-    <div className="App">
+    <div id='options' className="Options">
        <p>In development phase...</p>
     </div>
   );

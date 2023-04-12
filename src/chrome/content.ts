@@ -34,7 +34,6 @@ async function handlerFunction(event) {
         // Check if any text was selected
         if (window.getSelection().toString().length > 0) {
             // Get selected text and encode it
-            const res = await createContentChatGPT({ keyWord: window.getSelection().toString() })
             const selection = window.getSelection();
             const range = selection.getRangeAt(0)
             if (range && !selection.isCollapsed) {
@@ -42,16 +41,14 @@ async function handlerFunction(event) {
                     const span = document.createElement('span');
                     span.className = "my-tooltip highlight"
                     span.textContent = selection.toString();
-
-                    // span.insertAdjacentHTML('beforeend',`
-                    // <span class ="highlight tooltiptext"> ${selection.toString()}</span>
-                    // `)
                     const spanChil = document.createElement('span');
-                    spanChil.textContent = res.description;
                     spanChil.className = 'my-tooltiptext';
+                    spanChil.textContent = "loading....";
                     span.appendChild(spanChil)
                     selection.deleteFromDocument();
                     range.insertNode(span);
+                    const res = await createContentChatGPT({ keyWord: window.getSelection().toString() })
+                    spanChil.textContent = res.description;
                 }
             }
 

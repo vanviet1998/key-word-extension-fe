@@ -5,12 +5,14 @@
     "manifest_version": 3,
     "action": {
         "default_popup": "index.html",
-        "default_title": "Open the popup"
+        "default_title": "Open the popup",
+        "default_icon": "/icon.jpg"
+
     },
     "options_ui": {
       "page": "index.html"
     },
-   
+  
     "background": {
       "service_worker": 
         "./static/js/background.js"

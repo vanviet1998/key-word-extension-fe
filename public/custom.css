@@ -10,7 +10,8 @@
   
   .my-tooltip .my-tooltiptext {
     font-size: 12px;
-    width: 600px;
+    max-width: 600px;
+    width: max-content;
     visibility: hidden;
     background-color: #555;
     color: #fff;
@@ -27,6 +28,7 @@
     margin-left: auto;
     margin-right: auto;
     left: 50%;
+    padding: 16px;
   }
   
   .my-tooltip .my-tooltiptext::after {
